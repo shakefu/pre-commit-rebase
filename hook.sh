@@ -21,7 +21,7 @@ function main {
     local target_branch="$remote/$default_branch"
 
     # Attempt to rebase onto the remote default automatically
-    git rebase --verbose --rerere-autoupdate --autostash --allow-empty "$target_branch"
+    git rebase --verbose --rerere-autoupdate --allow-empty "$target_branch"
     local result=$?
     [[ $result -eq 0 ]] || git rebase --verbose --abort
     [[ $result -eq 0 ]] || return $result
