@@ -4,9 +4,6 @@ function main {
     # Get the remote name (usually "origin")
     local remote
     remote=$(git remote)
-    # Get the current branch name
-    local current_branch
-    current_branch=$(git rev-parse --abbrev-ref HEAD)
 
     # Use the first argument as the default branch, or find the default branch
     local default_branch="$1"
@@ -22,12 +19,8 @@ function main {
 
     # Attempt to rebase onto the remote default automatically
     local target_branch="$remote/$default_branch"
-    # Get the current branch name
-    local current_branch
-    current_branch=$(git rev-parse --abbrev-ref HEAD)
 
     # Attempt to rebase onto the remote default automatically
-    _echo_blue "Rebasing $current_branch onto $target_branch"
     git rebase --verbose --rerere-autoupdate --autostash --allow-empty "$target_branch"
     local result=$?
     [[ $result -eq 0 ]] || git rebase --verbose --abort
