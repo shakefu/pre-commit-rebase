@@ -6,7 +6,7 @@ Always rebase your branches.
 
 ```yaml
 - repo: https://github.com/shakefu/pre-commit-rebase
-  rev: v0.1.0
+  rev: v0.1.3
   hooks:
     - id: rebase
       # Optionally specify the default branch, instead of discovering it

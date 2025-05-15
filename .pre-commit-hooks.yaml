@@ -1,6 +1,6 @@
 - id: rebase
-  name: Rebase onto the default branch
-  description: Rebases the current branch onto the origin defaultbranch
+  name: rebase onto the default branch
+  description: Rebase the current branch onto the origin default branch
   entry: ./hook.sh
   language: script
   pass_filenames: false
