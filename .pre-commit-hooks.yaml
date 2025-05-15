@@ -1,0 +1,7 @@
+- id: rebase
+  name: Rebase onto the default branch
+  description: Rebases the current branch onto the origin defaultbranch
+  entry: ./hook.sh
+  language: script
+  pass_filenames: false
+  stages: [commit]
