@@ -1,4 +1,16 @@
 repos:
+  # - repo: https://github.com/shakefu/pre-commit-rebase
+  #   rev: v0.1.2
+  #   hooks:
+  #     - id: rebase
+  - repo: local
+    hooks:
+      - id: rebase
+        name: rebase
+        entry: hook.sh
+        language: script
+        pass_filenames: false
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:

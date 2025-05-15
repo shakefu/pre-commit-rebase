@@ -20,10 +20,18 @@ function main {
     # Attempt to rebase onto the remote default automatically
     local target_branch="$remote/$default_branch"
 
+    # Stash staged changes before rebasing
+    git stash push --staged
+
     # Attempt to rebase onto the remote default automatically
     git rebase --verbose --rerere-autoupdate --allow-empty "$target_branch"
+
     local result=$?
     [[ $result -eq 0 ]] || git rebase --verbose --abort
+
+    # Restore the stashed staged changes
+    git stash pop --index
+
     [[ $result -eq 0 ]] || return $result
 }
 
